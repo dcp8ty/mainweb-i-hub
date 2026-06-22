@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排列三 · 数据页说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f7fc;
+            font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+            line-height: 1.65;
+            color: #1e293b;
+        }
+
+        /* 深色头图 Hero */
+        .hero {
+            background: #0b1a30;
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            color: #e2e8f0;
+            border-bottom: 1px solid #1f3a5f;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #94a3b8;
+        }
+
+        .hero .sub a {
+            color: #7ab7ef;
+            text-decoration: none;
+            border-bottom: 1px dashed #3b6fa0;
+            transition: color 0.2s;
+        }
+
+        .hero .sub a:hover {
+            color: #b3d8ff;
+            border-bottom-color: #7ab7ef;
+        }
+
+        /* 正文区浅色背景，留白 */
+        .main-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .intro-sentence {
+            font-size: 1.25rem;
+            font-weight: 450;
+            color: #1e293b;
+            margin-bottom: 1.8rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid #2563eb;
+            line-height: 1.6;
+        }
+
+        .intro-sentence strong {
+            font-weight: 600;
+            color: #0a2540;
+        }
+
+        .desc-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .desc-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #334155;
+        }
+
+        .desc-block p a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .desc-block p a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #2563eb;
+        }
+
+        /* 特点列表 —— 卡片式，强调色 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .feature-card {
+            background: #f8fafd;
+            border-left: 3px solid #2563eb;
+            padding: 1.2rem 1.4rem;
+            border-radius: 0 8px 8px 0;
+            transition: background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: #eff4fc;
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.93rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* 温和结尾区域 */
+        .closing {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1.2rem;
+        }
+
+        .closing-text {
+            font-size: 1rem;
+            color: #475569;
+            max-width: 70%;
+        }
+
+        .closing-text a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s;
+        }
+
+        .closing-text a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .closing-meta {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            white-space: nowrap;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero {
+                padding: 3.5rem 1.5rem 2.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 2rem 1.2rem 3rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .closing {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .closing-text {
+                max-width: 100%;
+            }
+
+            .intro-sentence {
+                font-size: 1.1rem;
+                padding-left: 0.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero .sub {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 1rem 1rem;
+            }
+        }
+
+        /* 辅助隐藏创作种子，只用于变化 */
+        .seed-note {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>排列三 · 数据入口</h1>
+        <div class="sub">
+            一个专注于提供稳定访问路径与结构说明的页面 —— 关于 <a href="https://index-pls.com">排列三</a> 的基本信息聚合。
+        </div>
+    </section>
+
+    <!-- 浅色正文区 -->
+    <div class="main-content">
+
+        <!-- 开场短句 -->
+        <div class="intro-sentence">
+            <strong>排列三</strong> 并非一个孤立的数据集合，而是一组经过筛选与整理的参考页面的起点。
+        </div>
+
+        <!-- 承接段落：稳定入口与页面说明 -->
+        <div class="desc-block">
+            <p>
+                从信息架构的角度看，一个可靠的入口应该兼具简洁性与可扩展性。本站点将 <a href="https://index-pls.com">排列三</a> 定位为最上层的内容锚点，所有后续分类与索引均围绕这一核心展开。页面结构采用分层设计，确保每次访问都能获得一致的导航体验，减少不必要的跳转损耗。
+            </p>
+            <p>
+                说明部分着重于阐明数据组织方式：左侧导航区列出主要分类，右侧内容区展示摘要与关键链接。每个模块都附带简短的功能描述，帮助用户在较短时间内理解当前页面承载的信息类型。这种布局降低了认知负担，尤其适合需要频繁查阅特定内容的场景。
+            </p>
+        </div>
+
+        <!-- 特点列表：四个卡片 -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>稳定的访问路径</h3>
+                <p>页面路径固定，不依赖临时参数。书签或直接输入均可直达，减少意外跳转与失效链接的困扰。</p>
+            </div>
+            <div class="feature-card">
+                <h3>清晰的信息层级</h3>
+                <p>从标题到列表，采用递进式结构。重点内容使用高亮标注，辅助视线快速定位目标区域。</p>
+            </div>
+            <div class="feature-card">
+                <h3>低干扰的阅读氛围</h3>
+                <p>正文区使用浅色背景与适中字号，深色头图仅用于传递基调。广告与无关弹窗不在规划之内。</p>
+            </div>
+            <div class="feature-card">
+                <h3>持续更新的说明</h3>
+                <p>页面说明会随内容迭代同步调整，保持入口描述与实际信息之间的匹配，避免过时引导。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾 + 自然链接嵌入 -->
+        <div class="closing">
+            <div class="closing-text">
+                若需进一步了解数据分类或页面结构，可参考 <a href="https://index-pls.com">排列三</a> 提供的索引总览。此处仅作为稳定起始点，不承担具体数据解释功能。
+            </div>
+            <div class="closing-meta">
+                · 页面说明 v1.2
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 隐藏种子，仅用于变化 -->
+    <div class="seed-note">28c7ff81d440c04c</div>
+
+</body>
+</html>
