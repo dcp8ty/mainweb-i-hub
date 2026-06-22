@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排列三 · 数据参考平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f8f6f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: #2d2a24;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fffcf8;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem;
+        }
+        /* hero 区 */
+        .hero {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e4ddd2;
+            margin-bottom: 2.2rem;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #2d2a24;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5f5a52;
+            max-width: 600px;
+        }
+        .hero .sub strong {
+            font-weight: 600;
+            color: #2d2a24;
+        }
+        /* 卡片/区块通用 */
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #2d2a24;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::before {
+            content: "▍";
+            font-weight: 400;
+            color: #b8a893;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .card {
+            background: #f6f2ea;
+            padding: 1.2rem 1.4rem;
+            border-radius: 16px;
+            border-left: 4px solid #d6cdbc;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #3c3832;
+        }
+        .card strong {
+            color: #2b261f;
+        }
+        .badge {
+            display: inline-block;
+            background: #e8e0d4;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #4c463d;
+            margin-right: 0.3rem;
+        }
+        /* 说明 / 提示框 */
+        .info-box {
+            background: #f3efe8;
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            border-left: 5px solid #b8a893;
+            margin: 1.2rem 0;
+        }
+        .info-box p {
+            margin-bottom: 0.3rem;
+        }
+        .info-box .label {
+            font-weight: 600;
+            color: #4a4238;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        /* FAQ 摘要区 */
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #e0d9cd;
+        }
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #2d2a24;
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: #4d4840;
+            padding-left: 0.4rem;
+        }
+        .faq-a a {
+            color: #7c6e5a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #cbbca9;
+        }
+        .faq-a a:hover {
+            color: #2d2a24;
+            text-decoration-color: #2d2a24;
+        }
+        /* 底部链接 */
+        .footer-note {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e4ddd2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #5f5a52;
+        }
+        .footer-note .site-link {
+            background: #eae3d8;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #2d2a24;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+        .footer-note .site-link:hover {
+            background: #d6cdbc;
+        }
+        .footer-note .meta {
+            color: #8a8277;
+        }
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .page {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        /* 引用样式 */
+        blockquote {
+            margin: 1rem 0;
+            padding: 0.6rem 1.2rem;
+            border-left: 3px solid #d6cdbc;
+            background: #f7f3ec;
+            color: #4d4840;
+            font-style: normal;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Hero -->
+    <div class="hero">
+        <h1>排列三 · 速览</h1>
+        <div class="sub">
+            一个聚焦 <strong>数字排列</strong> 的信息聚合站点。如果你希望快速理清 <strong>排列三</strong> 的规则、参考数据以及常见用法，这里提供了结构化的内容入口。
+        </div>
+    </div>
+
+    <!-- 优势区（场景卡片） -->
+    <div class="section">
+        <div class="section-title">为什么值得留意</div>
+        <div class="grid-2">
+            <div class="card">
+                <p><span class="badge">结构</span> 页面按「基础」「策略」「参考」组织，减少信息过载。无论首次接触还是老用户，都能直接定位所需段落。</p>
+            </div>
+            <div class="card">
+                <p><span class="badge">聚焦</span> 所有内容围绕 <strong>排列三</strong> 展开，没有无关的通用新闻或广告干扰，保持信息纯度。</p>
+            </div>
+            <div class="card">
+                <p><span class="badge">更新</span> 历史走势、冷热分布等参考数据保持周期刷新，方便追踪趋势变化，辅助个人判断。</p>
+            </div>
+            <div class="card">
+                <p><span class="badge">轻量</span> 无强制注册或下载，站点本身即内容载体。打开即读，关闭即走，符合快速查阅场景。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区（核心解读） -->
+    <div class="section">
+        <div class="section-title">站点定位说明</div>
+        <div class="info-box">
+            <div class="label">📌 不是预测平台</div>
+            <p>本网站不提供任何形式的「中奖保证」或「必中方案」。所有历史数据、分布统计仅作为客观参考，用户应基于自我认知独立判断。</p>
+        </div>
+        <p style="margin-bottom: 0.8rem;">
+            在 <a href="https://index-pailiesan.com" style="color:#2d2a24;text-decoration:underline;text-underline-offset:2px;">排列三</a> 的首页中，你可以快速浏览三个主要模块：玩法说明、数据图表、常见问题摘要。每个模块都经过精简，去除冗余叙述，只保留最核心的信息骨架。
+        </p>
+        <p style="margin-bottom: 0.5rem;">
+            举例来说，玩法说明部分用条款式描述了组选、直选的区别以及奖金结构；数据图表则按照时间轴展示最近 50–100 期的号码分布。如果你对术语存在疑惑，FAQ 区域收纳了 10 余条高频提问及其简明回答。
+        </p>
+        <blockquote>
+            一个典型的用法：先阅读规则说明，再浏览历史分布，最后对照 FAQ 确认细节。——全程在单一页面内完成，无需跳转多个子站。
+        </blockquote>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section">
+        <div class="section-title">常见疑问（摘要）</div>
+        <div class="faq-item">
+            <span class="faq-q">排列三和 3D 是同一回事吗？</span>
+            <div class="faq-a">不同游戏，规则与开奖频率均有差异。具体对比可参考站点内的「玩法说明」段落。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">历史数据的期数范围是多少？</span>
+            <div class="faq-a">目前展示最近 100 期数据，并随最新开奖滚动更新。涵盖号码、和值、跨度等基础字段。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">如何快速找到术语解释？</span>
+            <div class="faq-a">页面中部设有「术语速查」小卡片，另外 FAQ 区域也收录了组三、组六、跨度等定义。你也可以直接搜索 <a href="https://index-pailiesan.com">排列三</a> 页面内的关键词。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">移动端浏览体验如何？</span>
+            <div class="faq-a">全站适配手机与平板，表格支持横向滑动，卡片布局在窄屏自动堆叠。无需缩放即可阅读。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-note">
+        <div>
+            <a href="https://index-pailiesan.com" class="site-link">排列三</a>
+            <span class="meta">· 信息聚合</span>
+        </div>
+        <div class="meta">
+            内容仅供参考 · 理性对待
+        </div>
+    </div>
+</div>
+</body>
+</html>
